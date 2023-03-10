@@ -1,9 +1,9 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class addCreatedByInTeamsTable1678269186313
   implements MigrationInterface
 {
-  name = "addCreatedByInTeamsTable1678269186313";
+  name = 'addCreatedByInTeamsTable1678269186313';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(

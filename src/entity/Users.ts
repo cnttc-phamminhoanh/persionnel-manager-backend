@@ -8,62 +8,62 @@ import {
   Index,
   ManyToOne,
   JoinColumn,
-} from "typeorm";
-import { Teams } from "./Teams";
+} from 'typeorm';
+import { Teams } from './Teams';
 
 export enum UserStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
 }
 
 @Entity()
 export class Users {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   userId: number;
 
-  @Column({ type: "varchar" })
+  @Column({ type: 'varchar' })
   email: string;
 
-  @Column({ type: "varchar", default: "" })
+  @Column({ type: 'varchar', default: '' })
   profileImage: string;
 
-  @Column({ type: "varchar" })
+  @Column({ type: 'varchar' })
   lastName: string;
 
-  @Column({ type: "varchar" })
+  @Column({ type: 'varchar' })
   firstName: string;
 
-  @Column({ type: "varchar", default: "" })
+  @Column({ type: 'varchar', default: '' })
   phoneNumber: string;
 
-  @Column({ type: "text", nullable: true })
+  @Column({ type: 'text', nullable: true })
   address: string;
 
-  @Column({ type: "varchar", default: "" })
+  @Column({ type: 'varchar', default: '' })
   facebook: string;
 
-  @Column({ type: "varchar", default: "" })
+  @Column({ type: 'varchar', default: '' })
   instagram: string;
 
-  @Column({ type: "varchar", select: false })
+  @Column({ type: 'varchar', select: false })
   password?: string;
 
-  @Column({ type: "simple-array", select: false })
+  @Column({ type: 'simple-array', select: false })
   oldPasswords: string[];
 
-  @Column({ type: "varchar", nullable: false, default: UserStatus.INACTIVE })
+  @Column({ type: 'varchar', nullable: false, default: UserStatus.INACTIVE })
   status: UserStatus;
 
   @Index()
-  @ManyToOne(() => Teams, (team) => team.teamId, { onDelete: "SET NULL" })
-  @JoinColumn({ name: "teamId" })
-  @Column({ type: "varchar", nullable: true })
+  @ManyToOne(() => Teams, (team) => team.teamId, { onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'teamId' })
+  @Column({ type: 'varchar', nullable: true })
   teamId: string;
 
-  @CreateDateColumn({ type: "timestamp" })
+  @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
-  @UpdateDateColumn({ type: "timestamp", onUpdate: "CURRENT_TIMESTAMP(6)" })
+  @UpdateDateColumn({ type: 'timestamp', onUpdate: 'CURRENT_TIMESTAMP(6)' })
   updatedAt: Date;
 
   @BeforeUpdate()

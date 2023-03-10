@@ -1,0 +1,39 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": 2,
+        "no-console": 1,
+        "semi-spacing": 2,
+        "no-trailing-spaces": 2,
+        "@typescript-eslint/no-explicit-any": 0,
+        "keyword-spacing": [
+          "error",
+          { "before": true }
+        ],
+        "key-spacing": [
+          "error",
+          { "beforeColon": false }
+        ]
+    }
+}
