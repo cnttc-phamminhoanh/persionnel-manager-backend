@@ -1,16 +1,9 @@
-import { myDataSource } from './data-source';
+import { connectDB, myDataSource } from './data-source';
 import * as express from 'express';
 import { type Request, type Response } from 'express';
 import { Users } from './entity/Users';
 
-myDataSource
-	.initialize()
-	.then(() => {
-		console.log('Data Source has been initialized!');
-	})
-	.catch((err) => {
-		console.error('Error during Data Source initialization:', err);
-	});
+connectDB();
 
 const app = express();
 
