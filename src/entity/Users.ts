@@ -45,7 +45,7 @@ export class Users {
   @Column({ type: 'varchar', default: '' })
   instagram: string;
 
-  @Column({ type: 'varchar', select: false })
+  @Column({ type: 'varchar' })
   password?: string;
 
   @Column({ type: 'simple-array', select: false })
