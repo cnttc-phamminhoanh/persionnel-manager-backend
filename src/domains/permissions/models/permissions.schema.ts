@@ -9,8 +9,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Teams } from './Teams';
-import { Users } from './Users';
+import { Teams } from '../../teams/models/teams.schema';
+import { Users } from '../../users/models/users.schema';
 
 export enum PermissionStatus {
   PENDING = 'PENDING',
