@@ -9,22 +9,18 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Teams } from './Teams';
-
-export enum UserStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE',
-}
+import { Teams } from '../../teams/models/teams.schema';
+import { UserStatuses } from './users.interface';
 
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn('uuid')
-  userId: number;
+  userId: string;
 
   @Column({ type: 'varchar' })
   email: string;
 
-  @Column({ type: 'varchar', default: '' })
+  @Column({ type: 'varchar', nullable: true })
   profileImage: string;
 
   @Column({ type: 'varchar' })
@@ -39,10 +35,10 @@ export class Users {
   @Column({ type: 'text', nullable: true })
   address: string;
 
-  @Column({ type: 'varchar', default: '' })
+  @Column({ type: 'varchar', nullable: true })
   facebook: string;
 
-  @Column({ type: 'varchar', default: '' })
+  @Column({ type: 'varchar', nullable: true })
   instagram: string;
 
   @Column({ type: 'varchar' })
@@ -51,8 +47,8 @@ export class Users {
   @Column({ type: 'simple-array', select: false })
   oldPasswords: string[];
 
-  @Column({ type: 'varchar', nullable: false, default: UserStatus.INACTIVE })
-  status: UserStatus;
+  @Column({ type: 'varchar', default: UserStatuses.INACTIVE })
+  status: UserStatuses;
 
   @Index()
   @ManyToOne(() => Teams, (team) => team.teamId, { onDelete: 'SET NULL' })

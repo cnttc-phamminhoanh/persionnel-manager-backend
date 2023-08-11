@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Users } from './Users';
+import { Users } from '../../users/models/users.schema';
 
 export enum TeamStatuses {
   ACTIVE = 'ACTIVE',
